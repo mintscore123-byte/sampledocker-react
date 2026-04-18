@@ -1,0 +1,19 @@
+#Specify a base image
+FROM node:lts-alpine
+
+WORKDIR /usr/app
+
+#COPY ./ ./
+COPY ./package.json ./
+RUN  npm install
+COPY ./ ./
+#No limitation on outgoing traffic but only on incoming traffic
+
+#Install some dependencies
+
+
+# Default command
+CMD ["npm","run","start"]
+
+#Example: docker run -p 8000:8080 nodesy.......... 8080 is container port. 8000 is localhost port.
+#Example: docker exec -it 75c31b4b391c sh ..............Run a command inside a running container
