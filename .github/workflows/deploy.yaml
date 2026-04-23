@@ -25,11 +25,7 @@ jobs:
 
       - name: Generate deployment package
         run: |
-          zip -r deploy.zip \
-            Dockerfile \
-            package.json \
-            package-lock.json \
-            build/
+          zip -r deploy.zip . -x "*.git*"
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
